@@ -9,7 +9,9 @@ router.get("/weatherSearch", (req, res, next) => {
   const { city, extensions, output } = search_key;
 
   service.getSearchWeatherData(city, extensions, output, (content) => {
-    res.send(content);
+    res.send({
+      data: content,
+    });
   });
 });
 
@@ -20,6 +22,14 @@ router.get("/getAdCode", (req, res, next) => {
 
   service.getAdCode(keywords, subdistrict, (content) => {
     res.send(content);
+  });
+});
+
+router.get("/getIP", (req, res, next) => {
+  service.getIP((content) => {
+    res.send({
+      data: content,
+    });
   });
 });
 
