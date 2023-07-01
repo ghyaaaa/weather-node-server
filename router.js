@@ -21,7 +21,9 @@ router.get("/getAdCode", (req, res, next) => {
   const { keywords, subdistrict } = search_key;
 
   service.getAdCode(keywords, subdistrict, (content) => {
-    res.send(content);
+    res.send({
+      data: content,
+    });
   });
 });
 
