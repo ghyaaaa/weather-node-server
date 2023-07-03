@@ -3,6 +3,9 @@ const router = express.Router();
 const qs = require("querystring");
 const service = require("./server");
 
+/**
+ * 根据adcode查询天气接口
+ */
 router.get("/weatherSearch", (req, res, next) => {
   const search_key = qs.parse(req._parsedUrl.query);
 
@@ -15,6 +18,9 @@ router.get("/weatherSearch", (req, res, next) => {
   });
 });
 
+/**
+ * 根据中文名 查询adcode
+ */
 router.get("/getAdCode", (req, res, next) => {
   const search_key = qs.parse(req._parsedUrl.query);
 
@@ -27,6 +33,9 @@ router.get("/getAdCode", (req, res, next) => {
   });
 });
 
+/**
+ * 获取定位信息
+ */
 router.get("/getIP", (req, res, next) => {
   service.getIP((content) => {
     res.send({
